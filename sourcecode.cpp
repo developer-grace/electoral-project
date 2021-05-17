@@ -40,51 +40,58 @@ ofstream candidatedata;
 	return 0;
 }
 
+
+
 int main()
 {
-	string line;
-	ifstream voterdata("input1.txt");
-	if (voterdata.is_open())
-	{
-		while (getline(voterdata, line))
-		{
-			cout << line << '\n';
-		}
-		voterdata.close();
-	}
-	else cout << "Unable to open file";
+	// string line;
+	// ifstream voterdata("input1.txt");
+	// if (voterdata.is_open())
+	// {
+	// 	while (getline(voterdata, line))
+	// 	{
+	// 		cout << line << '\n';
+	// 	}
+	// 	voterdata.close();
+	// }
+	// else cout << "Unable to open file";
 
 
 // Taking in selection 
-	char menu;
-	cout << "Please enter your choice: ";
+	string menu;
+	cout << "Please enter your choice: \n";
 	cout << "Enter P - Print numbers for a particular candidate\n";
 	cout << "Enter A - Add number of votes to a candidate\n";
 	cout << "Enter S - Display the smallest number of votes candidate\n";
 	cout << "Enter L - Display the largest number of votes candidate\n";
-	cout << "Enter Q - Quit";
+	cout << "Enter Q - Quit\n";
 	cin >> menu;
 
-// Using if-else-if statement to accommodate all cases
-// To-do: make the input case INsesitive
+// Using if-else-if statement to accommodate alphabet letters 
 
-	if (menu == p) {
-		voterdata_file();
+	if (menu == "p" || menu == "P") {
+		// voterdata_file();
+		cout << "this is for option P";
 	}
-	else if (menu == a) {
-		candidatedata_file();
+	else if (menu == "a" || menu == "A") {
+		// candidatedata_file();
+		cout << "This is for option A";
+
 	}
-	else if (menu == s) {
+	else if (menu == "s" || menu == "S") {
 		// write code here 
+		cout << "This is for option S";
 	}
-	else if (menu == l) {
+	else if (menu == "l" || menu == "L") {
 		// write code here 
+		cout << "This is for option L";
 	}
-	else if (menu == q) {
+	else if (menu == "q" || menu == "G") {
 		cout << "Quit";
 	}
 	else {
-		cout << "Unknown selection, please try again."
+		cout << "Unknown selection, please try again.";
+		// write code to go back to main selection 
 	}
 		
 // char data[100];
