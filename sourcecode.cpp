@@ -44,39 +44,38 @@ ofstream candidatedata;
 
 int main()
 {
-	// string line;
-	// ifstream voterdata("input1.txt");
-	// if (voterdata.is_open())
-	// {
-	// 	while (getline(voterdata, line))
-	// 	{
-	// 		cout << line << '\n';
-	// 	}
-	// 	voterdata.close();
-	// }
-	// else cout << "Unable to open file";
+	string line;
+	ifstream voterdata("input1.txt");
+	if (voterdata.is_open())
+	{
+		while (getline(voterdata, line))
+		{
+			cout << line << '\n';
+		}
+		voterdata.close();
+	}
+	else cout << "Unable to open file";
 
 
 // Taking in selection 
 	string menu;
 	cout << "Please enter your choice: \n";
-	cout << "Enter P - Print numbers for a particular candidate\n";
+	cout << "Enter P - Print number of votes for a particular candidate\n";
 	cout << "Enter A - Add number of votes to a candidate\n";
-	cout << "Enter S - Display the smallest number of votes candidate\n";
-	cout << "Enter L - Display the largest number of votes candidate\n";
+	cout << "Enter S - Display candidate with the smallest number of votes\n";
+	cout << "Enter L - Display candidate with the largest number of votes\n";
 	cout << "Enter Q - Quit\n";
 	cin >> menu;
 
 // Using if-else-if statement to accommodate alphabet letters 
 
 	if (menu == "p" || menu == "P") {
-		// voterdata_file();
+		voterdata_file();
 		cout << "this is for option P";
 	}
 	else if (menu == "a" || menu == "A") {
-		// candidatedata_file();
+		candidatedata_file();
 		cout << "This is for option A";
-
 	}
 	else if (menu == "s" || menu == "S") {
 		// write code here 
@@ -86,29 +85,14 @@ int main()
 		// write code here 
 		cout << "This is for option L";
 	}
-	else if (menu == "q" || menu == "G") {
+	else if (menu == "q" || menu == "Q") {
 		cout << "Quit";
 	}
 	else {
-		cout << "Unknown selection, please try again.";
-		// write code to go back to main selection 
+		cout << "Unknown selection, please try again.\n";
+		// Calling main function to go back to list of selections 
+		return main();
 	}
-		
-// char data[100];
-// 		// opening a file in write mode.
-// 	cout << "Writing to the file" << endl;
-// 	cout << "Enter your name: ";
-// 	cin.getline(data, 100);
-// 	voterdata << "Your Name is:";
-// 	voterdata << data << endl;
-// 	cout << "Enter your age: "; cin >> data;
-// 	cin.ignore();
-// 	voterdata << "Your Age is:";
-// 	voterdata << data << endl;
-
-// 	// close the opened file.
-// 	voterdata.close();
 
 return 0;
 }
-
