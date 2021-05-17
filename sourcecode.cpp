@@ -3,12 +3,14 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
+//create a file for the voter's data
 int voterdata_file()
 {
 	ofstream voterdata;
-	voterdata.open("candidatedata.txt");
+	voterdata.open("Voter Data Base.txt");
 	if (!voterdata)
 	{
 		cout << "file not created";
@@ -16,13 +18,15 @@ int voterdata_file()
 	else
 	{
 		cout << "file created successfully!";
-		voterdata << "Symbol\n" << "Name\n" << "Age\n" << "Suburb\n" << "Count\n" << endl;
+		voterdata << "Voter Data Base\n";
+		voterdata << setw(15) << "Voter ID" << setw(15) << "Name" << setw(15)<< "Age" << setw(15)<<"Suburb" << setw(15)<< "Status" << endl;
+		voterdata <<  setw(15) << 12345678 << setw(15) << "Tommy Sauche" << setw(15) << "23" << setw(15)<< "Carlton" << setw(15)<< "Student" << endl;
 	}
 	voterdata.close();
 	return 0;
 }
 
-
+//create a file for the candidate's data
 int candidatedata_file()
 {
 ofstream candidatedata;
@@ -34,7 +38,10 @@ ofstream candidatedata;
 	else
 	{
 		cout << "file created successfully!";
-		candidatedata << "Symbol\n" << "Name\n" << "Age\n" << "Suburb\n" << "Count\n" << endl;
+		candidatedata << "Candidate Data Base\n";
+		candidatedata << "Party" << "Name" << "Age" << "District" << "Count" << endl;
+		candidatedata << "Greens" << "Jane Goodie" <<
+		candidatedata << "Liberal" << "Harry Badgoi" << 45 << "Brighton" << "" << endl;
 	}
 	candidatedata.close();
 	return 0;
@@ -42,18 +49,6 @@ ofstream candidatedata;
 
 int main()
 {
-	string line;
-	ifstream voterdata("input1.txt");
-	if (voterdata.is_open())
-	{
-		while (getline(voterdata, line))
-		{
-			cout << line << '\n';
-		}
-		voterdata.close();
-	}
-	else cout << "Unable to open file";
-
 	int menu;
 	cout << "Please enter your choice: ";
 	cout << "Enter P - Print numbers for a particular candidate\n";
@@ -67,9 +62,46 @@ int main()
 	{
 	case 1:
 		voterdata_file();
+			char data[100];
+		// opening a file in write mode.
+			cout << "Writing to the file" << endl;
+			cout << "Please enter your Voter ID: ";
+			cin.getline(data, 100);
+			voterdata << "Please enter your name:";
+			voterdata << data << endl;
+			cout << "Enter your age: "; cin >> data;
+			cin.ignore();
+			voterdata << "Your Age is:";
+			voterdata << data << endl;
+
+	// close the opened file.
+	voterdata.close();
+	
+				/*string line;
+				ifstream voterdata("voterdata.txt");
+				if (voterdata.is_open())
+				{
+					while (getline(voterdata, line))
+					{
+						cout << line << '\n';
+					}
+					voterdata.close();
+				}
+				else cout << "Unable to open file";*/
 		break;
 	case 2:
 		candidatedata_file();
+			string line;
+			ifstream candidatedata("candidatedata.txt");
+			if (candidatedata.is_open())
+			{
+				while (getline(candidatedata, line))
+				{
+					cout << line << '\n';
+				}
+				candidatedata.close();
+			}
+			else cout << "Unable to open file";
 		break;
 	case 3:
 		print_student_file();
@@ -81,22 +113,6 @@ int main()
 		cout << "Quit";
 		break;
 	}
-
-		
-char data[100];
-		// opening a file in write mode.
-	cout << "Writing to the file" << endl;
-	cout << "Enter your name: ";
-	cin.getline(data, 100);
-	voterdata << "Your Name is:";
-	voterdata << data << endl;
-	cout << "Enter your age: "; cin >> data;
-	cin.ignore();
-	voterdata << "Your Age is:";
-	voterdata << data << endl;
-
-	// close the opened file.
-	voterdata.close();
 
 return 0
 }
