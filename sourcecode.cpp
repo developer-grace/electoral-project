@@ -54,7 +54,9 @@ int main()
 	}
 	else cout << "Unable to open file";
 
-	int menu;
+
+// Taking in selection 
+	char menu;
 	cout << "Please enter your choice: ";
 	cout << "Enter P - Print numbers for a particular candidate\n";
 	cout << "Enter A - Add number of votes to a candidate\n";
@@ -63,41 +65,43 @@ int main()
 	cout << "Enter Q - Quit";
 	cin >> menu;
 
-	switch (menu)
-	{
-	case 1:
+// Using if-else-if statement to accommodate all cases
+// To-do: make the input case INsesitive
+
+	if (menu == p) {
 		voterdata_file();
-		break;
-	case 2:
-		candidatedata_file();
-		break;
-	case 3:
-		print_student_file();
-		break;
-	case 4:
-		print_staff_file();
-		break;
-	case 5:
-		cout << "Quit";
-		break;
 	}
-
+	else if (menu == a) {
+		candidatedata_file();
+	}
+	else if (menu == s) {
+		// write code here 
+	}
+	else if (menu == l) {
+		// write code here 
+	}
+	else if (menu == q) {
+		cout << "Quit";
+	}
+	else {
+		cout << "Unknown selection, please try again."
+	}
 		
-char data[100];
-		// opening a file in write mode.
-	cout << "Writing to the file" << endl;
-	cout << "Enter your name: ";
-	cin.getline(data, 100);
-	voterdata << "Your Name is:";
-	voterdata << data << endl;
-	cout << "Enter your age: "; cin >> data;
-	cin.ignore();
-	voterdata << "Your Age is:";
-	voterdata << data << endl;
+// char data[100];
+// 		// opening a file in write mode.
+// 	cout << "Writing to the file" << endl;
+// 	cout << "Enter your name: ";
+// 	cin.getline(data, 100);
+// 	voterdata << "Your Name is:";
+// 	voterdata << data << endl;
+// 	cout << "Enter your age: "; cin >> data;
+// 	cin.ignore();
+// 	voterdata << "Your Age is:";
+// 	voterdata << data << endl;
 
-	// close the opened file.
-	voterdata.close();
+// 	// close the opened file.
+// 	voterdata.close();
 
-return 0
+return 0;
 }
 
