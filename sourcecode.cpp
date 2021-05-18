@@ -37,18 +37,23 @@ int candidatedata_file()
 	{
 		cout << "File created successfully!\n";
 		candidatedata << "Candidate Data Base\n";
-		candidatedata << "Party" << "Name" << "Age" << "District" << "Count" << endl;
-		candidatedata << "Greens" << "Jane Goodie" <<
-		candidatedata << "Liberal" << "Harry Badgoi" << 45 << "Brighton" << "" << endl;
+		// candidatedata << setw(15) << "Party" << setw(15) << "Name" << setw(15) << "Age" << setw(15) << setw(15) << "District" << setw(15) << "Count" << endl;
+		// candidatedata << setw(15) << "Greens" << setw(15) << "Jane Goodie" << setw(15) << 50 << setw(15) << setw(15) << "Kensington" << setw(15) << 28 << endl;
+		// candidatedata << setw(15) << "Liberal" << setw(15) << "Harry Badgoi" << setw(15) <<45 << setw(15) << setw(15) << "Brighton" << setw(15) << 32 << endl;
+		candidatedata  << "Party\t" << "Name\t\t" << "Age\t"  <<  "District\t"  << "Count" << endl;
+		candidatedata << "Greens\t" << "Jane Goodie\t"  << 50  << "\t" << "Kensington\t"  << 28 << endl;
+		candidatedata << "Liberal\t" <<  "Harry Badgoi\t"  <<45 << "\t" << "Brighton\t"  << 32 << endl;
 	}
 	candidatedata.close();
 	return 0;
 }
 
-int main()
+
+int read_voterdata_file() // Reading from voter database
 {
+	
 	string line;
-	ifstream voterdata("input1.txt");
+	ifstream voterdata("Voter Data Base.txt");
 	if (voterdata.is_open())
 	{
 		while (getline(voterdata, line))
