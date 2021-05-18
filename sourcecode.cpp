@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-int voterdata_file()
+int voterdata_file() // Writing into voter database
 {
 	ofstream voterdata;
 	voterdata.open("Voter Data Base.txt");
@@ -25,7 +25,7 @@ int voterdata_file()
 }
 
 
-int candidatedata_file()
+int candidatedata_file() // Writing into candidate database
 {
 	ofstream candidatedata;
 	candidatedata.open("candidatedata.txt");
@@ -62,17 +62,38 @@ int read_voterdata_file() // Reading from voter database
 		}
 		voterdata.close();
 	}
-	else cout << "Unable to open file\n";
+	else cout << "Unable to read voter database file\n";
+	return 0;
+}
 
 
+int read_candidatedata_file() // Reading from candidate database
+{
+	string line;
+	ifstream candidatedata("candidatedata.txt");
+	if (candidatedata.is_open()) {
+		while (getline (candidatedata, line)) {
+			cout << line << '\n';
+		}
+		candidatedata.close();
+	}
+	else {
+		cout << "Unable to read candidate database file\n";
+	}
+	return 0;
+}
+
+int main()
+{
 // Taking in selection as a string, as the options are in alphabet letters
+// Main menu
 	string menu;
 	cout << "Please enter your choice: \n";
 	cout << "Enter P - Print numbers for a particular candidate\n";
 	cout << "Enter A - Add number of votes to a candidate\n";
 	cout << "Enter S - Display the candidate with the smallest number of votes\n";
 	cout << "Enter L - Display the candidate with the largest number of votes\n";
-	cout << "Enter Q - Quit";
+	cout << "Enter Q - Quit\n";
 	cin >> menu;
 
 // Using if-else-if statement to accommodate upper/lowercase options
@@ -110,32 +131,26 @@ int read_voterdata_file() // Reading from voter database
 		
 	}
 	else if (menu == "s" || menu == "S") {
-		// write code here 
-		cout << "testing option S";
+		candidatedata_file();
+		read_candidatedata_file();
+		// To-do: search for smallest vote count, then extract value + candidate name
+		cout << "The candidate with the smallest number of votes is Candidate " ; // print candidate name and number of votes 
 	}
 	else if (menu == "l" || menu == "L") {
-		// write code here 
-		cout << "testing option L";
+		voterdata_file();
+		read_voterdata_file();
+		// To-do: search for largest vote count, then extract value + candidate name
+		cout << "The candidate with the largest number of votes is Candidate "; // print candidate name and number of votes
 	}
 	else if (menu == "q" || menu == "Q") {
-		cout << "Quit\n" << endl; 
+		cout << "Quit\n" << endl;
 	}
 	else {
 		cout << "Unknown selection, please try again.";
+
 		// Calling main function to go back to list of selections 
 		main();
 	}
 	
 return 0;
 }
-//string line;
-//		ifstream candidatedata("candidatedata.txt");
-//		if (candidatedata.is_open())
-//		{
-//			while (getline(candidatedata, line))
-//			{
-//				cout << line << '\n';
-//			}
-//			candidatedata.close();
-//		}
-//		else cout << "Unable to open file";
