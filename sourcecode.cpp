@@ -37,9 +37,6 @@ int candidatedata_file() // Writing into candidate database
 	{
 		cout << "File created successfully!\n";
 		candidatedata << "Candidate Data Base\n";
-		// candidatedata << setw(15) << "Party" << setw(15) << "Name" << setw(15) << "Age" << setw(15) << setw(15) << "District" << setw(15) << "Count" << endl;
-		// candidatedata << setw(15) << "Greens" << setw(15) << "Jane Goodie" << setw(15) << 50 << setw(15) << setw(15) << "Kensington" << setw(15) << 28 << endl;
-		// candidatedata << setw(15) << "Liberal" << setw(15) << "Harry Badgoi" << setw(15) <<45 << setw(15) << setw(15) << "Brighton" << setw(15) << 32 << endl;
 		candidatedata  << "Party\t" << "Name\t\t" << "Age\t"  <<  "District\t"  << "Count" << endl;
 		candidatedata << "Greens\t" << "Jane Goodie\t"  << 50  << "\t" << "Kensington\t"  << 28 << endl;
 		candidatedata << "Liberal\t" <<  "Harry Badgoi\t"  <<45 << "\t" << "Brighton\t"  << 32 << endl;
@@ -133,17 +130,17 @@ int main()
 	else if (menu == "s" || menu == "S") {
 		candidatedata_file();
 		read_candidatedata_file();
-		// To-do: search for smallest vote count, then extract value + candidate name
+		// TODO: search for smallest vote count, then extract value + candidate name
 		cout << "The candidate with the smallest number of votes is Candidate " ; // print candidate name and number of votes 
 	}
 	else if (menu == "l" || menu == "L") {
 		voterdata_file();
 		read_voterdata_file();
-		// To-do: search for largest vote count, then extract value + candidate name
+		// TODO: search for largest vote count, then extract value + candidate name
 		cout << "The candidate with the largest number of votes is Candidate "; // print candidate name and number of votes
 	}
 	else if (menu == "q" || menu == "Q") {
-		cout << "Quit\n" << endl;
+		cout << "Closing program, goodbye\n" << endl;
 	}
 	else {
 		cout << "Unknown selection, please try again.";
