@@ -6,6 +6,25 @@
 #include <sstream>
 using namespace std;
 
+	// Grabbing number of votes from array of string types and turning them into integer types
+	void stringToInt();
+	{
+		for (int i = 1; i < 15; i++)
+		{
+			for (int v = 0; v < 5; i++)
+				{
+					string str = candidates[i][5];
+					int num;
+
+					stringstream ss;  
+					ss << str;  
+					ss >> num;
+					int NumVotes[15] = { num }; // storing int num into array NumVotes
+				}
+		}
+	}
+
+
 int main()
 {
 	int length, vote, identifier;
@@ -148,27 +167,8 @@ int main()
 	else 
 		{
 			cout << "Unknown selection, please try again." << endl;
-
 			// Calling main function to go back to list of selections 
 			main();
 		}
-		
-	// Grabbing number of votes from array of string types and turning them into integer types
-	void stringToInt();
-	{
-		for (int i = 1; i < 15; i++)
-		{
-			for (int v = 0; v < 5; i++)
-				{
-					string str = candidates[i][5];
-					int num;
-
-					stringstream ss;  
-					ss << str;  
-					ss >> num;
-					int NumVotes[15] = { num }; // storing int num into array NumVotes
-				}
-		}
-	}
 	return 0;
-}
+}
