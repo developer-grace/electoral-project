@@ -3,14 +3,15 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <sstream>
 using namespace std;
-
 
 int main()
 {
 	int length, vote, identifier;
 	string id;
 	length = id.length();
+	int NumVotes[15];
 	
 	//rows, collumns
 	string candidates[15][6] = 
@@ -117,31 +118,57 @@ int main()
 		main();
 	}
 	else if (menu == "s" || menu == "S")
-	{
-		
-		// To-do: search for smallest vote count, then extract value + candidate name
-		cout << "The candidate with the smallest number of votes is Candidate " ; // print candidate name and number of votes 
-		main();
-	}
+		{
+			void stringToInt();
+			int small;
+			for(int i = 0 ; i < 15 ; i++ )
+			{
+				if( NumVotes[i] <small)
+				small = NumVotes[i];
+			}
+			cout << "The smallest number of votes is " << small << "\n"; // print number of votes 
+			main();
+		}
 	else if (menu == "l" || menu == "L")
-	{
-		
-		// To-do: search for largest vote count, then extract value + candidate name
-		cout << "The candidate with the largest number of votes is Candidate "; // print candidate name and number of votes
-		main();
-	}
+		{
+			void stringToInt();
+			int large;
+			for(int i = 0 ; i < 15 ; i++ )
+			{
+				if( NumVotes[i] > large)
+				large = NumVotes[i];
+			}
+			cout << "The largest number of votes is " << large << "\n"; // print number of votes
+			main();
+		}
 	else if (menu == "q" || menu == "Q") 
-	{
-		cout << "Goodbye!\n" << endl;
-	}
+		{
+			cout << "Goodbye!\n" << endl;
+		}
 	else 
+		{
+			cout << "Unknown selection, please try again." << endl;
+
+			// Calling main function to go back to list of selections 
+			main();
+		}
+		
+	// Grabbing number of votes from array of string types and turning them into integer types
+	void stringToInt();
 	{
-		cout << "Unknown selection, please try again." << endl;
+		for (int i = 1; i < 15; i++)
+		{
+			for (int v = 0; v < 5; i++)
+				{
+					string str = candidates[i][5];
+					int num;
 
-		// Calling main function to go back to list of selections 
-		main();
+					stringstream ss;  
+					ss << str;  
+					ss >> num;
+					int NumVotes[15] = { num }; // storing int num into array NumVotes
+				}
+		}
 	}
-
 	return 0;
-}
-
+}
