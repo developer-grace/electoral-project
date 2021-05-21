@@ -6,6 +6,9 @@
 #include <sstream>
 using namespace std;
 
+string candidates[15][6]; 
+int NumVotes[15];
+
 void converter()
 {
 	int vote1;
@@ -14,6 +17,26 @@ void converter()
 	string svote1;
 	ss >> svote1;
 }
+
+	// Grabbing number of votes from array of string types and turning them into integer types
+	void stringToInt()
+	{
+		for (int i = 1; i < 15; i++)
+		{
+			for (int v = 0; v < 5; i++)
+				{
+					string str = candidates[i][5];
+					int num;
+					stringstream ss;  
+					ss << str;  
+					ss >> num;
+					int NumVotes[15] = { num }; // storing int num into array NumVotes
+				}
+		}
+	}
+
+
+
 
 int main()
 {
@@ -170,20 +193,33 @@ int main()
 		//cout << "The list is empty\n";
 		main();
 	}
+
 	else if (menu == "s" || menu == "S")
 	{
-		
-		// To-do: search for smallest vote count, then extract value + candidate name
-		cout << "The candidate with the smallest number of votes is Candidate " ; // print candidate name and number of votes 
+		void stringToInt();
+		int small;
+		for(int i = 0 ; i < 15 ; i++ )
+		{
+			if( NumVotes[i] <small)
+			small = NumVotes[i];
+		}
+		cout << "The smallest number of votes is " << small << "\n"; // print number of votes 
 		main();
 	}
+
 	else if (menu == "l" || menu == "L")
 	{
-		
-		// To-do: search for largest vote count, then extract value + candidate name
-		cout << "The candidate with the largest number of votes is Candidate "; // print candidate name and number of votes
+		void stringToInt();
+		int large;
+		for(int i = 0 ; i < 15 ; i++ )
+		{
+			if( NumVotes[i] > large)
+			large = NumVotes[i];
+		}
+		cout << "The largest number of votes is " << large << "\n"; // print number of votes
 		main();
 	}
+
 	else if (menu == "q" || menu == "Q") 
 	{
 		cout << "Goodbye!\n" << endl;
