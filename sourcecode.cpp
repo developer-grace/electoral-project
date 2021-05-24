@@ -35,7 +35,7 @@ int main()
 	string id;
 	string svote1="0", svote2="0", svote3 = "0", svote4 = "0", svote5 = "0", svote6 = "0", svote7 = "0", svote8 = "0", svote9 = "0", svote10 = "0";
 	length = id.length();
-	double large, min;
+	int large, min;
 	int NumVotes[15];
 	large = NumVotes[i];
 	min = NumVotes[i];
